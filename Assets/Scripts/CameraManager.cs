@@ -8,14 +8,16 @@ public class CameraManager : MonoBehaviour
     [SerializeField] GameObject[] cameraButtons;
     private CinemachineCamera currentCamera;
     private GameObject currentButton;
+    bool isCamOverlayActive = true;
+    GameObject mapImage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     //CurrentCamera is set to the first camera in the array.
     void Start()
     {
+        mapImage = GameObject.FindWithTag("map");
         currentCamera = cameras[0];
         currentButton = cameraButtons[0];
         currentButton.GetComponent<Image>().color = Color.green;
-
     }
 
     //This function is called to switch the current camera to the camera at the specified index, it also changes the color of the button to green to give feedback on where you are. This is called through the onlcick() function of the buttons in the UI.
@@ -36,4 +38,29 @@ public class CameraManager : MonoBehaviour
         currentButton = cameraButtons[index];
         currentButton.GetComponent<Image>().color = Color.green; // Set the color of the current button to green to indicate it's active
     }
+
+    //this function will be called by the hide button, this will be so that the player can hide the cam select overlay.
+    public void toggleSCamOverlay()
+    {
+        if (isCamOverlayActive)
+        {
+            foreach (var b in cameraButtons)
+            {
+                b.gameObject.SetActive(false);
+            }
+            mapImage.SetActive(false);
+            isCamOverlayActive = false;
+        }
+        else
+        {
+            foreach (var b in cameraButtons)
+            {
+                b.gameObject.SetActive(true);
+            }
+            mapImage.SetActive(true);
+            isCamOverlayActive = true;
+        }
+    }
+
+  
 }
