@@ -1203,6 +1203,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4705792170515016482, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
   m_PrefabInstance: {fileID: 1625990497130055482}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1490344017 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1218138589024056991, guid: 1f2f2eeec228e5945a3577c922e11e5f, type: 3}
+  m_PrefabInstance: {fileID: 2282978152779153706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eacd21496f53fe44a7d6baf1df366a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraManager
 --- !u!1 &1646649388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,7 +1416,7 @@ PrefabInstance:
     - target: {fileID: 1487037854146580230, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1490344017}
     - target: {fileID: 3457626252504368851, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1489,7 +1500,7 @@ PrefabInstance:
     - target: {fileID: 4733514538738086362, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1490344017}
     - target: {fileID: 5119625539964191664, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_Name
       value: UI CANVAS
@@ -1497,15 +1508,15 @@ PrefabInstance:
     - target: {fileID: 5618762695845105956, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1490344017}
     - target: {fileID: 5695472696597526211, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1490344017}
     - target: {fileID: 7784042455727399565, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1490344017}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
