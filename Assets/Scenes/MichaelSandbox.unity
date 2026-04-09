@@ -374,8 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4dd01b195f9452999436fc79150598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashLightControler
-  flashlightIntensity: 12
-  distance: 10
+  rayDistance: 100
   useRaycast: 1
   surfaceMask:
     serializedVersion: 2
@@ -1232,6 +1231,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957955975}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &972758332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2710132255911712101, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
+  m_PrefabInstance: {fileID: 1625990497130055482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &1055679410 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1609373113050981962, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
+  m_PrefabInstance: {fileID: 1625990497130055482}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1069777449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,6 +1610,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1676143202}
+    - target: {fileID: 8823064021764697662, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
+      propertyPath: taskTexts.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8823064021764697662, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
+      propertyPath: 'taskTexts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 972758332}
+    - target: {fileID: 8823064021764697662, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
+      propertyPath: 'taskTexts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1055679410}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
