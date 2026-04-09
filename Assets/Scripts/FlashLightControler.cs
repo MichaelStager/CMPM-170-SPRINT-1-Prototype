@@ -18,15 +18,13 @@ public class FlashLightControler : MonoBehaviour
 
     void Start()
     {
-        useRaycast = true;
-        flashlightIntensity = 100f;
-        distance = 100f;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        // 1. Get the current active camera
+        // 1. Get the current active camera and sanity check
         Camera activeCam = Camera.main;
         if (activeCam == null) return;
         //Debug.Log("Active Camera: " + activeCam.name);
@@ -41,6 +39,7 @@ public class FlashLightControler : MonoBehaviour
             // Create a ray from camera through mouse position
             Ray ray = activeCam.ScreenPointToRay(mousePos);
             Debug.DrawRay(ray.origin, ray.direction * distance, Color.red);
+
             if (Physics.Raycast(ray, out RaycastHit hit, distance * 2, surfaceMask))
             {
                 worldPoint = hit.point;
@@ -65,6 +64,4 @@ public class FlashLightControler : MonoBehaviour
         transform.LookAt(worldPoint);
         //Debug.Log("Light Direction: " + transform.forward);
     }
-
-    
 }
