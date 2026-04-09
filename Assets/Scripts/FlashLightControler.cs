@@ -65,4 +65,6 @@ public class FlashLightControler : MonoBehaviour
         transform.LookAt(worldPoint);
         //Debug.Log("Light Direction: " + transform.forward);
     }
+
+    
 }
