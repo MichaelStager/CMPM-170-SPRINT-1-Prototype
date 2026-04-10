@@ -42,11 +42,13 @@ public class GetInfoObject : MonoBehaviour
                  switch (clickedObject.name)
                 {
                     case "Fuse1":
-                        taskManager.completeTask(1);
+                        taskManager.completeTask(0);
                         Destroy(clickedObject);
                         Debug.Log("Found Fuse");
                         break;
                     case "Fuse2":
+                        taskManager.completeTask(1);
+                        Destroy(clickedObject);
                         Debug.Log("Found Fuse2");
                         break;
                     case "Fuse3":
