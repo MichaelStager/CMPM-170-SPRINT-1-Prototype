@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Numerics;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class AdManager : MonoBehaviour
@@ -32,7 +29,7 @@ public class AdManager : MonoBehaviour
 
     public void startAdTimer()
     {
-        UnityEngine.Debug.Log("AdManager.spawnAd");
+        Debug.Log("AdManager.spawnAd");
 
         // TODO begin ad loop, that generates ads every 10 to 30 seconds (configurable)
         StartCoroutine("spawnAdCoroutine");
@@ -40,7 +37,7 @@ public class AdManager : MonoBehaviour
 
     public IEnumerator spawnAdCoroutine()
     {
-        UnityEngine.Debug.Log("AdManager.spawnAdCoroutine");
+        Debug.Log("AdManager.spawnAdCoroutine");
 
         yield return new WaitForSeconds(Random.Range(secondDelayMinimum, secondDelayMaximum));
 
@@ -49,13 +46,19 @@ public class AdManager : MonoBehaviour
 
     private GameObject createPopup()
     {
-        GameObject newAdLayer = Instantiate(adPrefab, new UnityEngine.Vector3(0, 0, 0), UnityEngine.Quaternion.identity);
+        GameObject newAdLayer = Instantiate(adPrefab, new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0), Quaternion.identity);
         newAdLayer.transform.SetParent(canvas.transform);
 
         Button adCloseButton = newAdLayer.transform.GetChild(0).GetChild(0).GetComponent<Button>();
-        adCloseButton.onClick.AddListener(() => Destroy(newAdLayer)); // Silence, brand
+        adCloseButton.onClick.AddListener(() => silenceBrand(newAdLayer));
 
         return newAdLayer;
+    }
+
+    private void silenceBrand(GameObject adLayerObject)
+    {
+        Destroy(adLayerObject);
+        startAdTimer();
     }
 
 }
