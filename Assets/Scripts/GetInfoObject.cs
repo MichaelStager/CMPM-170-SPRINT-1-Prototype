@@ -52,21 +52,31 @@ public class GetInfoObject : MonoBehaviour
                         Debug.Log("Found Fuse2");
                         break;
                     case "Fuse3":
+                        taskManager.completeTask(2);
                         Debug.Log("Found Fuse3");
                         break;
-                    case "fix the circuit breaker":
-                        Debug.Log("Found Circuit Breaker");
+                    case "CircuitBreaker":
+                        taskManager.completeTask(3);
+                        Debug.Log("Fix Circuit Breaker");
                         break;
-                    case "battery" :
-                        Debug.Log("Found Battery");
-                        break;
-                    case "flip electricity switch":
+                    case "ElectricitySwitch":   
+                        taskManager.completeTask(4);
                         Debug.Log("Found Electricity Switch");
                         break;
-                    case "read document":
+                    case "DocumentTutorial":
+                        taskManager.completeTask(5);
                         Debug.Log("Found Document");
                         break;
-                    case "re activate the coolant system":
+                    case "CoolingPipes1":
+                        taskManager.completeTask(6);
+                        Debug.Log("Found Coolant System");
+                        break;
+                    case "CoolingPipes2":
+                        taskManager.completeTask(7);
+                        Debug.Log("Found Coolant System");
+                        break;
+                    case "CoolingPipes3":
+                        taskManager.completeTask(8);
                         Debug.Log("Found Coolant System");
                         break;
                     
