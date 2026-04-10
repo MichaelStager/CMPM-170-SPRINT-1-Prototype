@@ -38,10 +38,33 @@ public class GetInfoObject : MonoBehaviour
 
                  Debug.Log("Clicked on: " + clickedObject.name);
                  //game object detection logic we decide on will lbe done here like
-                 if (clickedObject.name == "Fuse")
+                 switch (clickedObject.name)
                 {
-                    // Just profff of concept for now
-                    Debug.Log("Found Fuse");
+                    case "Fuse1":
+                        Debug.Log("Found Fuse");
+                        break;
+                    case "Fuse2":
+                        Debug.Log("Found Fuse2");
+                        break;
+                    case "Fuse3":
+                        Debug.Log("Found Fuse3");
+                        break;
+                    case "fix the circuit breaker":
+                        Debug.Log("Found Circuit Breaker");
+                        break;
+                    case "battery" :
+                        Debug.Log("Found Battery");
+                        break;
+                    case "flip electricity switch":
+                        Debug.Log("Found Electricity Switch");
+                        break;
+                    case "read document":
+                        Debug.Log("Found Document");
+                        break;
+                    case "re activate the coolant system":
+                        Debug.Log("Found Coolant System");
+                        break;
+                    
                 }
             }
         }
