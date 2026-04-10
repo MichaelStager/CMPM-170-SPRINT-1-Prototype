@@ -374,8 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa4dd01b195f9452999436fc79150598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlashLightControler
-  flashlightIntensity: 12
-  distance: 10
+  rayDistance: 100
   useRaycast: 1
   surfaceMask:
     serializedVersion: 2
