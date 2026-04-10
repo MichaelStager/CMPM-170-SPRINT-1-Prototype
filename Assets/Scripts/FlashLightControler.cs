@@ -24,7 +24,7 @@ public class FlashLightControler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 1. Get the current active camera
+        // 1. Get the current active camera and sanity check
         Camera activeCam = Camera.main;
         if (activeCam == null) return;
         //Debug.Log("Active Camera: " + activeCam.name);
