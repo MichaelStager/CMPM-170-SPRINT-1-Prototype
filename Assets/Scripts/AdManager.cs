@@ -24,41 +24,37 @@ public class AdManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
-        startAdTimer();
+        StartAdTimer();
     }
 
-    public void startAdTimer()
+    public void StartAdTimer()
     {
-        Debug.Log("AdManager.spawnAd");
-
         // TODO begin ad loop, that generates ads every 10 to 30 seconds (configurable)
         StartCoroutine("spawnAdCoroutine");
     }
 
-    public IEnumerator spawnAdCoroutine()
+    public IEnumerator DelayPopupCoroutine()
     {
-        Debug.Log("AdManager.spawnAdCoroutine");
-
         yield return new WaitForSeconds(Random.Range(secondDelayMinimum, secondDelayMaximum));
 
-        adWindows.Add(createPopup());
+        adWindows.Add(CreatePopup());
     }
 
-    private GameObject createPopup()
+    private GameObject CreatePopup()
     {
         GameObject newAdLayer = Instantiate(adPrefab, new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0), Quaternion.identity);
         newAdLayer.transform.SetParent(canvas.transform);
 
         Button adCloseButton = newAdLayer.transform.GetChild(0).GetChild(0).GetComponent<Button>();
-        adCloseButton.onClick.AddListener(() => silenceBrand(newAdLayer));
+        adCloseButton.onClick.AddListener(() => SilenceBrand(newAdLayer));
 
         return newAdLayer;
     }
 
-    private void silenceBrand(GameObject adLayerObject)
+    private void SilenceBrand(GameObject adLayerObject)
     {
         Destroy(adLayerObject);
-        startAdTimer();
+        StartAdTimer();
     }
 
 }
