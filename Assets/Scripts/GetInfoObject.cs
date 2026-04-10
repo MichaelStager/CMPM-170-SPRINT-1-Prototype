@@ -5,20 +5,25 @@ public class GetInfoObject : MonoBehaviour
     public string interactableTag = "Interactable";
     public float rayDistance = 100f;
     TaskManager taskManager;
+    AdManager adManager;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         taskManager = FindAnyObjectByType<TaskManager>();
+        adManager = FindAnyObjectByType<AdManager>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-// 1. Listen for the click
-        if (Input.GetMouseButtonDown(0))
+        if (!adManager.isAdActive)
         {
-            PerformInteraction();
+            // 1. Listen for the click
+            if (Input.GetMouseButtonDown(0))
+            {
+                PerformInteraction();
+            }
         }
     }
 
