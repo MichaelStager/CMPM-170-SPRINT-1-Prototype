@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,15 +35,18 @@ public class AdManager : MonoBehaviour
 
     public IEnumerator DelayedPopupCoroutine()
     {
-        yield return new WaitForSeconds(Random.Range(secondDelayMinimum, secondDelayMaximum));
+        yield return new WaitForSeconds(UnityEngine.Random.Range(secondDelayMinimum, secondDelayMaximum));
 
         adWindows.Add(CreatePopup());
     }
 
     private GameObject CreatePopup()
     {
+        float screenHalfWidth = Screen.width * 0.5f;
+        float screenHalfHeight = Screen.height * 0.5f;
+
         // Clone prefab to instantiate new popup-ad object
-        GameObject newAdLayer = Instantiate(adPrefab, new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0), Quaternion.identity);
+        GameObject newAdLayer = Instantiate(adPrefab, Vector3.zero, Quaternion.identity);
         newAdLayer.transform.SetParent(canvas.transform);
 
         // Pick random ad sprite and set it on the popup
@@ -54,6 +58,17 @@ public class AdManager : MonoBehaviour
         RectTransform adImageRect = adImage.GetComponent<RectTransform>();
         Texture2D adTexture = adSprite.texture;
         adImageRect.sizeDelta = new Vector2(adTexture.width, adTexture.height);
+
+        // Set random position for the ad popup
+        float spriteHalfWidth = adTexture.width * 0.5f;
+        float spriteHalfHeight = adTexture.height * 0.5f;
+        float deltaWidth = Math.Max(0, screenHalfWidth - spriteHalfWidth);
+        float deltaHeight = Math.Max(0, screenHalfHeight - spriteHalfHeight);
+        float randomX = screenHalfWidth + UnityEngine.Random.Range(-deltaWidth, deltaWidth);
+        float randomY = screenHalfHeight + UnityEngine.Random.Range(-deltaHeight, deltaHeight);
+        //Debug.Log($"screenHalfWidth: {screenHalfWidth}, screenHalfHeight: {screenHalfHeight}, spriteHalfHeight: {spriteHalfHeight}, spriteHalfHeight: {spriteHalfHeight}");
+        //Debug.Log($"deltaWidth: {deltaWidth}, deltaHeight: {deltaHeight}, randomX: {randomX}, randomY: {randomY}");
+        newAdLayer.GetComponent<RectTransform>().SetPositionAndRotation(new Vector3(randomX, randomY, 0), Quaternion.identity);
 
         // Bind listener to button for closing window 
         Button adCloseButton = adImage.GetChild(0).GetComponent<Button>();
@@ -70,7 +85,7 @@ public class AdManager : MonoBehaviour
 
     private Sprite GetRandomSprite()
     {
-        return adSprites[Random.Range(0, adSprites.Count)];
+        return adSprites[UnityEngine.Random.Range(0, adSprites.Count)];
     }
 
 }
