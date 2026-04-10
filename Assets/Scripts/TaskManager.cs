@@ -30,4 +30,16 @@ public class TaskManager : MonoBehaviour
         taskFinished[taskID] = true;
         }
     }
+
+    public bool AreAllTaskFinshed()
+    {
+        foreach (var task in taskFinished)
+        {
+            if(task == false)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }
