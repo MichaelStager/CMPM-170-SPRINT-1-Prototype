@@ -10,18 +10,32 @@ public class CameraManager : MonoBehaviour
     private GameObject currentButton;
     bool isCamOverlayActive = true;
     GameObject mapImage;
+    AdManager adManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     //CurrentCamera is set to the first camera in the array.
     void Start()
     {
+        adManager = FindAnyObjectByType<AdManager>();
         mapImage = GameObject.FindWithTag("map");
         currentCamera = cameras[0];
         currentButton = cameraButtons[0];
         currentButton.GetComponent<Image>().color = Color.green;
     }
 
+    private void Update()
+    {
+        if (adManager.isAdActive)
+        {
+            disableButtons();
+        }
+        else if (!adManager.isAdActive)
+        {
+            enableButtons();
+        }
+    }
+
     //This function is called to switch the current camera to the camera at the specified index, it also changes the color of the button to green to give feedback on where you are. This is called through the onlcick() function of the buttons in the UI.
-   public void SwitchCamera(int index)
+    public void SwitchCamera(int index)
     {
         if (index < 0 || index >= cameras.Length)
         {
@@ -62,5 +76,20 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-  
+    public void disableButtons()
+    {
+        foreach(var c in cameraButtons)
+        {
+            c.gameObject.GetComponent<Button>().interactable = false;
+        }
+    }
+    public void enableButtons()
+    {
+        foreach (var c in cameraButtons)
+        {
+            c.gameObject.GetComponent<Button>().interactable = true;
+        }
+    }
+
+
 }
