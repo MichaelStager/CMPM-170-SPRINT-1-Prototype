@@ -4,11 +4,12 @@ public class GetInfoObject : MonoBehaviour
 {
     public string interactableTag = "Interactable";
     public float rayDistance = 100f;
+    TaskManager taskManager;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        taskManager = FindAnyObjectByType<TaskManager>();
     }
 
     // Update is called once per frame
@@ -38,10 +39,35 @@ public class GetInfoObject : MonoBehaviour
 
                  Debug.Log("Clicked on: " + clickedObject.name);
                  //game object detection logic we decide on will lbe done here like
-                 if (clickedObject.name == "Fuse")
+                 switch (clickedObject.name)
                 {
-                    // Just profff of concept for now
-                    Debug.Log("Found Fuse");
+                    case "Fuse1":
+                        taskManager.completeTask(1);
+                        Destroy(clickedObject);
+                        Debug.Log("Found Fuse");
+                        break;
+                    case "Fuse2":
+                        Debug.Log("Found Fuse2");
+                        break;
+                    case "Fuse3":
+                        Debug.Log("Found Fuse3");
+                        break;
+                    case "fix the circuit breaker":
+                        Debug.Log("Found Circuit Breaker");
+                        break;
+                    case "battery" :
+                        Debug.Log("Found Battery");
+                        break;
+                    case "flip electricity switch":
+                        Debug.Log("Found Electricity Switch");
+                        break;
+                    case "read document":
+                        Debug.Log("Found Document");
+                        break;
+                    case "re activate the coolant system":
+                        Debug.Log("Found Coolant System");
+                        break;
+                    
                 }
             }
         }
