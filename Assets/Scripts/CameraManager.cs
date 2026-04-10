@@ -6,6 +6,7 @@ public class CameraManager : MonoBehaviour
 {
     [SerializeField] CinemachineCamera[] cameras;
     [SerializeField] GameObject[] cameraButtons;
+    [SerializeField] Button toggleButton;
     private CinemachineCamera currentCamera;
     private GameObject currentButton;
     bool isCamOverlayActive = true;
@@ -80,6 +81,7 @@ public class CameraManager : MonoBehaviour
     {
         foreach(var c in cameraButtons)
         {
+            toggleButton.interactable = false;
             c.gameObject.GetComponent<Button>().interactable = false;
         }
     }
@@ -88,6 +90,7 @@ public class CameraManager : MonoBehaviour
         foreach (var c in cameraButtons)
         {
             c.gameObject.GetComponent<Button>().interactable = true;
+            toggleButton.interactable = true;
         }
     }
 
