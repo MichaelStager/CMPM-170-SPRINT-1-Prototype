@@ -880,6 +880,57 @@ Transform:
   - {fileID: 950480448}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &839554801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 839554803}
+  - component: {fileID: 839554802}
+  m_Layer: 0
+  m_Name: AdManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &839554802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839554801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 006c14674895a4f0690f5e84c464b27f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AdManager
+  secondDelayMinimum: 1
+  secondDelayMaximum: 3
+  adPrefab: {fileID: 8588389481242508930, guid: 60a068813ea9c4684b18c2100ac1afb0, type: 3}
+  adSprites:
+  - {fileID: 21300000, guid: c4e16939f9f1b4261af0d3980b874f98, type: 3}
+  - {fileID: 21300000, guid: 69ff8473adc4e41c288ed858b01054d0, type: 3}
+  canvas: {fileID: 1675169057}
+--- !u!4 &839554803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839554801}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &920354227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,6 +1404,11 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2953714012649082867, guid: d9de4c33f6c29e249ae06d61558ace62, type: 3}
   m_PrefabInstance: {fileID: 3503806813757384487}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1675169057 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5119625539964191664, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
+  m_PrefabInstance: {fileID: 1625990497130055482}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1676143202 stripped
 MonoBehaviour:
@@ -1915,3 +1971,4 @@ SceneRoots:
   - {fileID: 832867027}
   - {fileID: 3503806813757384487}
   - {fileID: 2029290189}
+  - {fileID: 839554803}

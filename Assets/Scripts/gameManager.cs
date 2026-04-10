@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class gameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     TaskManager taskManager;
     [SerializeField] float levelTime = 360f;
