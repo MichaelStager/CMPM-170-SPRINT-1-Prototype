@@ -4,11 +4,12 @@ public class GetInfoObject : MonoBehaviour
 {
     public string interactableTag = "Interactable";
     public float rayDistance = 100f;
+    TaskManager taskManager;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        taskManager = FindAnyObjectByType<TaskManager>();
     }
 
     // Update is called once per frame
@@ -41,6 +42,8 @@ public class GetInfoObject : MonoBehaviour
                  switch (clickedObject.name)
                 {
                     case "Fuse1":
+                        taskManager.completeTask(1);
+                        Destroy(clickedObject);
                         Debug.Log("Found Fuse");
                         break;
                     case "Fuse2":
