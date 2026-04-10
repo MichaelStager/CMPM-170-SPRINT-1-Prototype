@@ -29,11 +29,10 @@ public class AdManager : MonoBehaviour
 
     public void StartAdTimer()
     {
-        // TODO begin ad loop, that generates ads every 10 to 30 seconds (configurable)
-        StartCoroutine("spawnAdCoroutine");
+        StartCoroutine("DelayedPopupCoroutine");
     }
 
-    public IEnumerator DelayPopupCoroutine()
+    public IEnumerator DelayedPopupCoroutine()
     {
         yield return new WaitForSeconds(Random.Range(secondDelayMinimum, secondDelayMaximum));
 
@@ -42,10 +41,22 @@ public class AdManager : MonoBehaviour
 
     private GameObject CreatePopup()
     {
+        // Clone prefab to instantiate new popup-ad object
         GameObject newAdLayer = Instantiate(adPrefab, new Vector3(Screen.width * 0.5f, Screen.height * 0.5f, 0), Quaternion.identity);
         newAdLayer.transform.SetParent(canvas.transform);
 
-        Button adCloseButton = newAdLayer.transform.GetChild(0).GetChild(0).GetComponent<Button>();
+        // Pick random ad sprite and set it on the popup
+        Transform adImage = newAdLayer.transform.GetChild(0);
+        Sprite adSprite = GetRandomSprite();
+        adImage.GetComponent<Image>().sprite = adSprite;
+
+        // Get dimensions from texture and set it for the ad window
+        RectTransform adImageRect = adImage.GetComponent<RectTransform>();
+        Texture2D adTexture = adSprite.texture;
+        adImageRect.sizeDelta = new Vector2(adTexture.width, adTexture.height);
+
+        // Bind listener to button for closing window 
+        Button adCloseButton = adImage.GetChild(0).GetComponent<Button>();
         adCloseButton.onClick.AddListener(() => SilenceBrand(newAdLayer));
 
         return newAdLayer;
@@ -55,6 +66,11 @@ public class AdManager : MonoBehaviour
     {
         Destroy(adLayerObject);
         StartAdTimer();
+    }
+
+    private Sprite GetRandomSprite()
+    {
+        return adSprites[Random.Range(0, adSprites.Count)];
     }
 
 }
