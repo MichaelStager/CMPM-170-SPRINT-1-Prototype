@@ -39,9 +39,15 @@ public class AdManager : MonoBehaviour
 
         yield return new WaitForSeconds(UnityEngine.Random.Range(secondDelayMinimum, secondDelayMaximum));
 
+        adWindows.Add(createPopup());
+    }
+
+    private GameObject createPopup()
+    {
         GameObject newPopup = Instantiate(adPrefab, new UnityEngine.Vector3(0, 0, 0), UnityEngine.Quaternion.identity);
 
         newPopup.transform.SetParent(canvas.transform);
-        adWindows.Add(newPopup);
+
+        return newPopup;
     }
 }
