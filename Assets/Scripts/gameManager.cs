@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     TaskManager taskManager;
+    AdManager adManager;
     [SerializeField] float levelTime = 360f;
     float currentTime = 0;
     bool isWinner = false;
@@ -11,6 +12,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        adManager = FindAnyObjectByType<AdManager>();
         taskManager = FindAnyObjectByType<TaskManager>();
         currentTime = levelTime;
     }
