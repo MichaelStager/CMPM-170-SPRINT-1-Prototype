@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Numerics;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class AdManager : MonoBehaviour
 {
@@ -15,14 +17,17 @@ public class AdManager : MonoBehaviour
 
     // Lifetime fields
     [SerializeField] GameObject canvas; // The parent object to add new ad popups to
-    private List<GameObject> adWindows; // Runtime storage for active ad windows
+    private readonly List<GameObject> adWindows; // Runtime storage for active ad windows
 
+    public AdManager()
+    {
+        adWindows = new List<GameObject>();
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
         startAdTimer();
-        adWindows = new List<GameObject>();
     }
 
     public void startAdTimer()
@@ -37,17 +42,20 @@ public class AdManager : MonoBehaviour
     {
         UnityEngine.Debug.Log("AdManager.spawnAdCoroutine");
 
-        yield return new WaitForSeconds(UnityEngine.Random.Range(secondDelayMinimum, secondDelayMaximum));
+        yield return new WaitForSeconds(Random.Range(secondDelayMinimum, secondDelayMaximum));
 
         adWindows.Add(createPopup());
     }
 
     private GameObject createPopup()
     {
-        GameObject newPopup = Instantiate(adPrefab, new UnityEngine.Vector3(0, 0, 0), UnityEngine.Quaternion.identity);
+        GameObject newAdLayer = Instantiate(adPrefab, new UnityEngine.Vector3(0, 0, 0), UnityEngine.Quaternion.identity);
+        newAdLayer.transform.SetParent(canvas.transform);
 
-        newPopup.transform.SetParent(canvas.transform);
+        Button adCloseButton = newAdLayer.transform.GetChild(0).GetChild(0).GetComponent<Button>();
+        adCloseButton.onClick.AddListener(() => Destroy(newAdLayer)); // Silence, brand
 
-        return newPopup;
+        return newAdLayer;
     }
+
 }
