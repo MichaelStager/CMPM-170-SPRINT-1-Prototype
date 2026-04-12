@@ -1462,6 +1462,58 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604848712}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &668501395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 668501397}
+  - component: {fileID: 668501396}
+  m_Layer: 0
+  m_Name: AdManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &668501396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668501395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 006c14674895a4f0690f5e84c464b27f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AdManager
+  secondDelayMinimum: 1
+  secondDelayMaximum: 3
+  isAdActive: 0
+  adPrefab: {fileID: 8588389481242508930, guid: 60a068813ea9c4684b18c2100ac1afb0, type: 3}
+  adSprites:
+  - {fileID: 21300000, guid: c4e16939f9f1b4261af0d3980b874f98, type: 3}
+  - {fileID: 21300000, guid: 69ff8473adc4e41c288ed858b01054d0, type: 3}
+  canvas: {fileID: 716461968}
+--- !u!4 &668501397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668501395}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &716461963
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1621,6 +1673,11 @@ GameObject:
 --- !u!1 &716461967 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8571220594282765509, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
+  m_PrefabInstance: {fileID: 716461963}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &716461968 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5119625539964191664, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
   m_PrefabInstance: {fileID: 716461963}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &733117899
@@ -4038,3 +4095,4 @@ SceneRoots:
   - {fileID: 1835455412}
   - {fileID: 733117899}
   - {fileID: 1272378225}
+  - {fileID: 668501397}
