@@ -6,7 +6,8 @@ public class GetInfoObject : MonoBehaviour
     public float rayDistance = 100f;
     TaskManager taskManager;
     AdManager adManager;
-    
+    [SerializeField] AudioSource interactAudioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -47,17 +48,13 @@ public class GetInfoObject : MonoBehaviour
                  switch (clickedObject.name)
                 {
                     case "Fuse1":
-                        taskManager.completeTask(0);
-                        Destroy(clickedObject);
-                        Debug.Log("Found Fuse");
+                        itemGrabbed(0, clickedObject);
                         break;
                     case "Fuse2":
-                        taskManager.completeTask(1);
-                        Destroy(clickedObject);
-                        Debug.Log("Found Fuse2");
+                        itemGrabbed(1, clickedObject);
                         break;
                     case "Fuse3":
-                        taskManager.completeTask(2);
+                        itemGrabbed(2, clickedObject);
                         Debug.Log("Found Fuse3");
                         break;
                     case "CircuitBreaker":
@@ -89,4 +86,13 @@ public class GetInfoObject : MonoBehaviour
             }
         }
     }
+
+    void itemGrabbed(int ID, GameObject clickedObject)
+    {
+        taskManager.completeTask(ID);
+        interactAudioSource.Play();
+        Destroy(clickedObject);
+        Debug.Log("Found Fuse");
+    }
+
 }
