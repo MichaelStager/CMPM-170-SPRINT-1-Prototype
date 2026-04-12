@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     TaskManager taskManager;
@@ -30,13 +30,16 @@ public class GameManager : MonoBehaviour
                 Debug.Log("you lose");
                 isWinner = false;
                 isGameOver = true;
+                SceneManager.LoadScene(3); //reloads the scene to reset the game, this is a placeholder for a lose screen that will be implemented in the future.
             }
 
             if (taskManager.AreAllTaskFinshed())
             {
+
                 Debug.Log("you win");
                 isWinner = true;
                 isGameOver = true;
+                SceneManager.LoadScene(2);
             }
         }
 

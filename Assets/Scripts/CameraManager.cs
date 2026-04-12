@@ -7,6 +7,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] CinemachineCamera[] cameras;
     [SerializeField] GameObject[] cameraButtons;
     [SerializeField] Button toggleButton;
+    [SerializeField] AudioSource camSwitchAudioSource;
     private CinemachineCamera currentCamera;
     private GameObject currentButton;
     bool isCamOverlayActive = true;
@@ -38,6 +39,7 @@ public class CameraManager : MonoBehaviour
     //This function is called to switch the current camera to the camera at the specified index, it also changes the color of the button to green to give feedback on where you are. This is called through the onlcick() function of the buttons in the UI.
     public void SwitchCamera(int index)
     {
+            camSwitchAudioSource.Play();
         if (index < 0 || index >= cameras.Length)
         {
             Debug.LogError("Invalid camera index: " + index);
