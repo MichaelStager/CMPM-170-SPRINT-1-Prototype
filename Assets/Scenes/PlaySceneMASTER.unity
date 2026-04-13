@@ -22937,7 +22937,7 @@ PrefabInstance:
     - target: {fileID: 1487037854146580230, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 733117900}
     - target: {fileID: 1487037854146580230, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SwitchCamera
@@ -23029,7 +23029,7 @@ PrefabInstance:
     - target: {fileID: 4733514538738086362, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 733117900}
     - target: {fileID: 4733514538738086362, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SwitchCamera
@@ -23041,7 +23041,7 @@ PrefabInstance:
     - target: {fileID: 5618762695845105956, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 733117900}
     - target: {fileID: 5618762695845105956, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: toggleSCamOverlay
@@ -23049,7 +23049,7 @@ PrefabInstance:
     - target: {fileID: 5695472696597526211, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 733117900}
     - target: {fileID: 5695472696597526211, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SwitchCamera
@@ -23057,7 +23057,7 @@ PrefabInstance:
     - target: {fileID: 7784042455727399565, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 733117900}
     - target: {fileID: 7784042455727399565, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SwitchCamera
@@ -23882,6 +23882,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 733117902}
   m_SourcePrefab: {fileID: 100100000, guid: d9de4c33f6c29e249ae06d61558ace62, type: 3}
+--- !u!114 &733117900 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1482553266156217834, guid: d9de4c33f6c29e249ae06d61558ace62, type: 3}
+  m_PrefabInstance: {fileID: 733117899}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eacd21496f53fe44a7d6baf1df366a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraManager
 --- !u!1 &733117901 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4467839156649543088, guid: d9de4c33f6c29e249ae06d61558ace62, type: 3}
@@ -32908,15 +32919,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1853239854913832276, guid: fe581bb2d088d42989f70c273b696d25, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.76
+      value: 10.9
       objectReference: {fileID: 0}
     - target: {fileID: 1853239854913832276, guid: fe581bb2d088d42989f70c273b696d25, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.02
+      value: 8.01
       objectReference: {fileID: 0}
     - target: {fileID: 1853239854913832276, guid: fe581bb2d088d42989f70c273b696d25, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 41.18
+      value: 44.86
       objectReference: {fileID: 0}
     - target: {fileID: 1853239854913832276, guid: fe581bb2d088d42989f70c273b696d25, type: 3}
       propertyPath: m_LocalRotation.w
