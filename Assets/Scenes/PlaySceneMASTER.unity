@@ -14646,6 +14646,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76760bb76a433424793e18534e8e9c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::gameManager
+  levelTime: 360
+  isGameOver: 0
 --- !u!4 &430811731
 Transform:
   m_ObjectHideFlags: 0
@@ -23061,6 +23063,10 @@ PrefabInstance:
     - target: {fileID: 7784042455727399565, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SwitchCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8238273031258684405, guid: 5140c8ad61ed1204cb51cd5bccc7c5a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32956,6 +32962,14 @@ PrefabInstance:
     - target: {fileID: 1853239854913832276, guid: fe581bb2d088d42989f70c273b696d25, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.083
+      objectReference: {fileID: 0}
+    - target: {fileID: 6786168717745731594, guid: fe581bb2d088d42989f70c273b696d25, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 8891366917536698160, guid: fe581bb2d088d42989f70c273b696d25, type: 3}
+      propertyPath: m_Volume
+      value: 0.693
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
