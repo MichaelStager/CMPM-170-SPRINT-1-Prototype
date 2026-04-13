@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class KeyPad : MonoBehaviour
@@ -6,6 +7,12 @@ public class KeyPad : MonoBehaviour
     public string correctCode = "1234567890"; // The correct code to unlock
     private string enteredCode = ""; // The code entered by the player
     public TMP_Text displayText; // Reference to the UI text element to display entered code (optional)
+
+    //audio stuff is here below since thsi is independent form others if we want to move somewhere else we can later
+    AudioSource audioSource;
+    [SerializeField] AudioClip buttonPressClip;
+    [SerializeField] AudioClip correctCodeClip;
+    [SerializeField] AudioClip incorrectCodeClip;
 
     private void Start()
     {
@@ -16,6 +23,7 @@ public class KeyPad : MonoBehaviour
     {
         //Debug.Log("Keypad button " + buttonNumber + " was clicked!");
         enteredCode += buttonNumber;
+        audioSource.PlayOneShot(buttonPressClip); // Play button press sound
         if (displayText != null)
         {
             UpdateDisplay();
@@ -42,13 +50,15 @@ public class KeyPad : MonoBehaviour
             Debug.Log("Correct code entered! Door unlocked.");
             // notes for me Add logic here to unlock the door or trigger the next event 
             // and also to make sure to connect with task list stuff
-            //add audio as well for correct code entry 
+            audioSource.PlayOneShot(correctCodeClip); // Play correct code sound
         }
         else
         {
             Debug.Log("Incorrect code. Try again.");
-            // add audio cue for incorrect code entry and maybe a visual cue as well 
+            
             // (like shaking the keypad or changing the color of the text) etc
+            audioSource.PlayOneShot(incorrectCodeClip); // Play incorrect code sound
         }
     }
 }
+//added teh auidio cues
