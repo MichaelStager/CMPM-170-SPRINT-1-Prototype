@@ -6,13 +6,15 @@ public class GetInfoObject : MonoBehaviour
     public float rayDistance = 100f;
     TaskManager taskManager;
     AdManager adManager;
+    lightMananger lightMananger;
     [SerializeField] AudioSource interactAudioSource;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         taskManager = FindAnyObjectByType<TaskManager>();
-        adManager = FindAnyObjectByType<AdManager>(); 
+        adManager = FindAnyObjectByType<AdManager>();
+        lightMananger = FindAnyObjectByType<lightMananger>();
     }
 
     // Update is called once per frame
@@ -49,6 +51,7 @@ public class GetInfoObject : MonoBehaviour
                 {
                     case "Fuse1":
                         itemGrabbed(0, clickedObject);
+                        lightMananger.turnLightsOn();
                         break;
                     case "Fuse2":
                         itemGrabbed(1, clickedObject);

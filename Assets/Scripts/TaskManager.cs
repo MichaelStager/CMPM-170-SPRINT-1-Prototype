@@ -9,6 +9,7 @@ public class TaskManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI[] taskTexts;
     public bool[] taskFinished;
+    int fusesHeld = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

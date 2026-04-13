@@ -10,6 +10,7 @@ public class KeyPad : MonoBehaviour
     public TMP_Text displayText; // Reference to the UI text element to display entered code (optional)
     public GameObject cancelButtonObject; // Reference to the 3D Cancel button
     public GameObject enterButtonObject; // Reference to the 3D Enter button
+    public bool codeFound = false;
 
     //audio stuff is here below since thsi is independent form others if we want to move somewhere else we can later
     [SerializeField] AudioSource audioSource;
@@ -62,6 +63,7 @@ public class KeyPad : MonoBehaviour
             // notes for me Add logic here to unlock the door or trigger the next event 
             // and also to make sure to connect with task list stuff
             audioSource.PlayOneShot(correctCodeClip); // Play correct code sound
+            codeFound = true;
         }
         else
         {
