@@ -16,9 +16,11 @@ public class KeyPad : MonoBehaviour
     [SerializeField] AudioClip buttonPressClip;
     [SerializeField] AudioClip correctCodeClip;
     [SerializeField] AudioClip incorrectCodeClip;
-    private void Start()
+    AdManager adManager;
+
+    void Start()
     {
-        // Optionally, you can initialize the enteredCode or set up any necessary references here
+        adManager = FindAnyObjectByType<AdManager>();
         enteredCode = "";
     }
     public void KeyPadButtonClicked(string buttonNumber)
@@ -72,7 +74,7 @@ public class KeyPad : MonoBehaviour
     private void Update()
     {
     ///baciallyl teh same logic used for teh camera object picking up repurposed fo teh two buttons we have cancel and enter
-        if (Input.GetMouseButtonDown(0))
+        if (!adManager.isAdActive && Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
