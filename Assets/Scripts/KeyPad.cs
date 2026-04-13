@@ -15,6 +15,7 @@ public class KeyPad : MonoBehaviour
     [SerializeField] AudioClip buttonPressClip;
     [SerializeField] AudioClip correctCodeClip;
     [SerializeField] AudioClip incorrectCodeClip;
+    [SerializeField] AdManager adManager; ///coonnect int he inspecter make sure
 
     private void Start()
     {
@@ -68,6 +69,30 @@ public class KeyPad : MonoBehaviour
             audioSource.PlayOneShot(incorrectCodeClip); // Play incorrect code sound
         }
     }
+
+    private void Update()
+    {
+    ///baciallyl teh same logic used for teh camera object picking up repurposed fo teh two buttons we have cancel and enter
+        if (!adManager.isAdActive && Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (cancelButtonObject != null && hit.collider.gameObject == cancelButtonObject)
+                {
+                    cancelButton();
+                }
+            
+                if (enterButtonObject != null && hit.collider.gameObject == enterButtonObject)
+                {
+                    EnterButton();
+                }
+            }
+        }
+    }
+
 //////I have used some ai on the below parts of this code ot help me figure out how to implemen teh enter an dcancel button codes cause i coudlnt figure out a way myself without completly repurposing the code
     private void cancelButton()
     {
@@ -98,28 +123,6 @@ public class KeyPad : MonoBehaviour
         else
         {
             Debug.Log("Please enter a code first.");
-        }
-    }
-    
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (cancelButtonObject != null && hit.collider.gameObject == cancelButtonObject)
-                {
-                    cancelButton();
-                }
-            
-                if (enterButtonObject != null && hit.collider.gameObject == enterButtonObject)
-                {
-                    EnterButton();
-                }
-            }
         }
     }
 }
