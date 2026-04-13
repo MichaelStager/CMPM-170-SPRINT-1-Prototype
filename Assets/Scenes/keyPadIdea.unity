@@ -3939,6 +3939,18 @@ PrefabInstance:
       propertyPath: displayText
       value: 
       objectReference: {fileID: 475422880}
+    - target: {fileID: 430925568715940339, guid: fe581bb2d088d42989f70c273b696d25, type: 3}
+      propertyPath: buttonPressClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5977c90068d094653850511f355ec0b1, type: 3}
+    - target: {fileID: 430925568715940339, guid: fe581bb2d088d42989f70c273b696d25, type: 3}
+      propertyPath: correctCodeClip
+      value: 
+      objectReference: {fileID: 8300000, guid: de9ff70a09aae4abe87f1497ff8ab4ea, type: 3}
+    - target: {fileID: 430925568715940339, guid: fe581bb2d088d42989f70c273b696d25, type: 3}
+      propertyPath: incorrectCodeClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c46832ef65d784fd9bbb2eb1df692e07, type: 3}
     - target: {fileID: 1853239854913832276, guid: fe581bb2d088d42989f70c273b696d25, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.2008
