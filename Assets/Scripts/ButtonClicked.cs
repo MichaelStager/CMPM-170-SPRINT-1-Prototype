@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class ButtonClicked : MonoBehaviour
 {
-    public int keyPadNumber = 0;
+    public int keyPadNumber;
     
     public UnityEvent onKeyPadButtonClicked;
     private void OnMouseDown()
