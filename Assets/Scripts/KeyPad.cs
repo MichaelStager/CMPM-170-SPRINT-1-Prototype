@@ -1,9 +1,11 @@
 using UnityEngine;
+using TMPro;
 
 public class KeyPad : MonoBehaviour
 {
     public string correctCode = "1234567890"; // The correct code to unlock
     private string enteredCode = ""; // The code entered by the player
+    public TMP_Text displayText; // Reference to the UI text element to display entered code (optional)
 
     private void Start()
     {
@@ -14,12 +16,23 @@ public class KeyPad : MonoBehaviour
     {
         //Debug.Log("Keypad button " + buttonNumber + " was clicked!");
         enteredCode += buttonNumber;
-        //Debug.Log ("Current entered code: " + enteredCode);
-        if (enteredCode.Length >= correctCode.Length)
+        if (displayText != null)
         {
-            CheckCode();
-            enteredCode = ""; // Reset the entered code after checking
+            UpdateDisplay();
+            displayText.text = enteredCode; // Update the display text with the current entered code
+            if (enteredCode.Length >= correctCode.Length)
+            {
+                CheckCode();
+                enteredCode = ""; // Reset the entered code after checking
+                        //Debug.Log ("Current entered code: " + enteredCode);
+            }
         }
+
+    }
+
+    void UpdateDisplay()
+    {
+        if (displayText != null) displayText.text = enteredCode;
     }
 
     private void CheckCode()
