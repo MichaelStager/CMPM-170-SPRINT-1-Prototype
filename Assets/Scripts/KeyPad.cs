@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.Audio;
+using UnityEngine.AdaptivePerformance;
 
 public class KeyPad : MonoBehaviour
 {
@@ -15,8 +16,6 @@ public class KeyPad : MonoBehaviour
     [SerializeField] AudioClip buttonPressClip;
     [SerializeField] AudioClip correctCodeClip;
     [SerializeField] AudioClip incorrectCodeClip;
-    [SerializeField] AdManager adManager; ///coonnect int he inspecter make sure
-
     private void Start()
     {
         // Optionally, you can initialize the enteredCode or set up any necessary references here
@@ -73,7 +72,7 @@ public class KeyPad : MonoBehaviour
     private void Update()
     {
     ///baciallyl teh same logic used for teh camera object picking up repurposed fo teh two buttons we have cancel and enter
-        if (!adManager.isAdActive && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -127,3 +126,24 @@ public class KeyPad : MonoBehaviour
     }
 }
 
+// public void disableButtons()
+// {
+// foreach(var c in cameraButtons)
+// {
+// toggleButton.interactable = false;
+// c.gameObject.GetComponent<Button>().interactable = false;
+// }
+// }
+// public void enableButtons()
+// {
+// foreach (var c in cameraButtons)
+// {
+// c.gameObject.GetComponent<Button>().interactable = true;
+// toggleButton.interactable = true;
+// }
+// }
+
+//ThermalEventHandler below dint work so I just put the code here
+//!adManager.isAdActive &&
+//[SerializeField] AdManager adManager; ///coonnect int he inspecter make sure
+//this mean th code it self doesn interact with ads so far emanig you cna still clcik on teh keypad with ads on teh screen
