@@ -8,10 +8,13 @@ public class AdManager : MonoBehaviour
 {
     [SerializeField] int secondDelayMinimum;
     [SerializeField] int secondDelayMaximum;
+    public bool isAdActive = false;
+
 
     // Prefab to instantiate and create new ad windows from
     [SerializeField] GameObject adPrefab;
     [SerializeField] List<Sprite> adSprites;
+    [SerializeField] AudioSource adAudioSource;
 
     // Lifetime fields
     [SerializeField] GameObject canvas; // The parent object to add new ad popups to
@@ -42,6 +45,8 @@ public class AdManager : MonoBehaviour
 
     private GameObject CreatePopup()
     {
+        isAdActive = true;
+        adAudioSource.Play();
         float screenHalfWidth = Screen.width * 0.5f;
         float screenHalfHeight = Screen.height * 0.5f;
 
@@ -79,6 +84,7 @@ public class AdManager : MonoBehaviour
 
     private void SilenceBrand(GameObject adLayerObject)
     {
+        isAdActive = false;
         Destroy(adLayerObject);
         StartAdTimer();
     }

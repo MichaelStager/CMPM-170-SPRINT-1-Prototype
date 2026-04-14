@@ -11,5 +11,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlaySceneMASTER.unity
     guid: 44d3c3b65959518499378ea6ecc95b0b
+  - enabled: 1
+    path: Assets/Scenes/WINSCREEN.unity
+    guid: 55fb368105fd9a5408b104044a26e295
+  - enabled: 1
+    path: Assets/Scenes/LOSESCREEN.unity
+    guid: 06481d49f245c6542898b6a860c51b77
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

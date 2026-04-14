@@ -5,20 +5,28 @@ public class GetInfoObject : MonoBehaviour
     public string interactableTag = "Interactable";
     public float rayDistance = 100f;
     TaskManager taskManager;
-    
+    AdManager adManager;
+    lightMananger lightMananger;
+    [SerializeField] AudioSource interactAudioSource;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         taskManager = FindAnyObjectByType<TaskManager>();
+        adManager = FindAnyObjectByType<AdManager>();
+        lightMananger = FindAnyObjectByType<lightMananger>();
     }
 
     // Update is called once per frame
     void Update()
     {
-// 1. Listen for the click
-        if (Input.GetMouseButtonDown(0))
+        if (!adManager.isAdActive)
         {
-            PerformInteraction();
+            // 1. Listen for the click
+            if (Input.GetMouseButtonDown(0))
+            {
+                PerformInteraction();
+            }
         }
     }
 
@@ -42,36 +50,79 @@ public class GetInfoObject : MonoBehaviour
                  switch (clickedObject.name)
                 {
                     case "Fuse1":
-                        taskManager.completeTask(0);
+                        taskManager.increaseFuseCount();
+                        interactAudioSource.Play();
                         Destroy(clickedObject);
                         Debug.Log("Found Fuse");
                         break;
                     case "Fuse2":
-                        taskManager.completeTask(1);
+                        taskManager.increaseFuseCount();
+                        interactAudioSource.Play();
                         Destroy(clickedObject);
-                        Debug.Log("Found Fuse2");
+                        Debug.Log("Found Fuse");
                         break;
                     case "Fuse3":
-                        Debug.Log("Found Fuse3");
+                        taskManager.increaseFuseCount();
+                        interactAudioSource.Play();
+                        Destroy(clickedObject);
+                        Debug.Log("Found Fuse");
+
                         break;
-                    case "fix the circuit breaker":
-                        Debug.Log("Found Circuit Breaker");
+                    case "CircuitBreaker":
+                        if (taskManager.fusesHeld == 3)
+                        {
+                            taskManager.completeTask(3);
+                            lightMananger.turnLightsOn();
+                        }
                         break;
-                    case "battery" :
-                        Debug.Log("Found Battery");
+                    case "KeyCard":   
+                        taskManager.completeTask(2);
+                        Debug.Log("Found KeyCard");
                         break;
-                    case "flip electricity switch":
-                        Debug.Log("Found Electricity Switch");
-                        break;
-                    case "read document":
+                    case "DocumentTutorial":
+                        taskManager.completeTask(0);
                         Debug.Log("Found Document");
                         break;
-                    case "re activate the coolant system":
+                    case "CoolingPipes1":
+                        taskManager.increaseCoolingPipeCount();
+                        interactAudioSource.Play();
+                        Destroy(clickedObject);
                         Debug.Log("Found Coolant System");
                         break;
-                    
+                    case "CoolingPipes2":
+                        taskManager.increaseCoolingPipeCount();
+                        interactAudioSource.Play();
+                        Destroy(clickedObject);
+                        Debug.Log("Found Coolant System");
+                        break;
+                    case "CoolingPipes3":
+                        taskManager.increaseCoolingPipeCount();
+                        interactAudioSource.Play();
+                        Destroy(clickedObject);
+                        Debug.Log("Found Coolant System");
+                        break;
+                    case "RodEngage":
+                        taskManager.completeTask(6);
+                        interactAudioSource.Play();
+                        break;
+                    case "ReactorButton":
+                        if (taskManager.checkCanShutDown())
+                        {
+                            taskManager.completeTask(7);
+                            interactAudioSource.Play();
+                        }
+                        break;
                 }
             }
         }
     }
+
+    void itemGrabbed(int ID, GameObject clickedObject)
+    {
+        taskManager.completeTask(ID);
+        interactAudioSource.Play();
+        Destroy(clickedObject);
+       
+    }
+
 }
