@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
@@ -5,6 +6,7 @@ public class GameManager : MonoBehaviour
     TaskManager taskManager;
     AdManager adManager;
     [SerializeField] float levelTime = 360f;
+    [SerializeField] AudioSource winSFX;
     float currentTime = 0;
     bool isWinner = false;
     public bool isGameOver = false;
@@ -39,9 +41,16 @@ public class GameManager : MonoBehaviour
                 Debug.Log("you win");
                 isWinner = true;
                 isGameOver = true;
-                SceneManager.LoadScene(2);
+                StartCoroutine("startWin");
             }
         }
-
     }
-}
+
+       public IEnumerator startWin()
+        {
+            winSFX.Play();
+            yield return new WaitForSeconds(3);
+            SceneManager.LoadScene(2);
+        }
+    }
+
