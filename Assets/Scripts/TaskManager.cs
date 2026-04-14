@@ -9,7 +9,8 @@ public class TaskManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI[] taskTexts;
     public bool[] taskFinished;
-    int fusesHeld = 0;
+    public int fusesHeld = 0;
+    public int pipesHeld = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -42,5 +43,27 @@ public class TaskManager : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public void increaseFuseCount()
+    {
+        fusesHeld++;
+        taskTexts[1].text = "Task 1: Get Fuses " + fusesHeld + "/3";
+        if (fusesHeld >= 3)
+        {
+            completeTask(1);
+        }
+
+    }
+
+    public void increaseCoolingPipeCount()
+    {
+        pipesHeld++;
+        taskTexts[4].text = "Task 5: Fix Cooling Pipes " + pipesHeld + "/3";
+        if (pipesHeld >= 3)
+        {
+            completeTask(4);
+        }
+
     }
 }

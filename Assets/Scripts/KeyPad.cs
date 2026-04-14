@@ -18,10 +18,12 @@ public class KeyPad : MonoBehaviour
     [SerializeField] AudioClip correctCodeClip;
     [SerializeField] AudioClip incorrectCodeClip;
     AdManager adManager;
+    TaskManager taskManager;
 
     void Start()
     {
         adManager = FindAnyObjectByType<AdManager>();
+        taskManager = FindAnyObjectByType<TaskManager>();
         enteredCode = "";
     }
     public void KeyPadButtonClicked(string buttonNumber)
@@ -64,6 +66,8 @@ public class KeyPad : MonoBehaviour
             // and also to make sure to connect with task list stuff
             audioSource.PlayOneShot(correctCodeClip); // Play correct code sound
             codeFound = true;
+            taskManager.completeTask(5);
+            
         }
         else
         {

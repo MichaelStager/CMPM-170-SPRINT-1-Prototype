@@ -50,38 +50,55 @@ public class GetInfoObject : MonoBehaviour
                  switch (clickedObject.name)
                 {
                     case "Fuse1":
-                        itemGrabbed(0, clickedObject);
-                        lightMananger.turnLightsOn();
+                        taskManager.increaseFuseCount();
+                        interactAudioSource.Play();
+                        Destroy(clickedObject);
+                        Debug.Log("Found Fuse");
                         break;
                     case "Fuse2":
-                        itemGrabbed(1, clickedObject);
+                        taskManager.increaseFuseCount();
+                        interactAudioSource.Play();
+                        Destroy(clickedObject);
+                        Debug.Log("Found Fuse");
                         break;
                     case "Fuse3":
-                        itemGrabbed(2, clickedObject);
-                        Debug.Log("Found Fuse3");
+                        taskManager.increaseFuseCount();
+                        interactAudioSource.Play();
+                        Destroy(clickedObject);
+                        Debug.Log("Found Fuse");
+
                         break;
                     case "CircuitBreaker":
-                        taskManager.completeTask(3);
-                        Debug.Log("Fix Circuit Breaker");
+                        if (taskManager.fusesHeld == 3)
+                        {
+                            taskManager.completeTask(3);
+                            lightMananger.turnLightsOn();
+                        }
                         break;
-                    case "ElectricitySwitch":   
-                        taskManager.completeTask(4);
-                        Debug.Log("Found Electricity Switch");
+                    case "KeyCard":   
+                        taskManager.completeTask(2);
+                        Debug.Log("Found KeyCard");
                         break;
                     case "DocumentTutorial":
-                        taskManager.completeTask(5);
+                        taskManager.completeTask(0);
                         Debug.Log("Found Document");
                         break;
                     case "CoolingPipes1":
-                        taskManager.completeTask(6);
+                        taskManager.increaseCoolingPipeCount();
+                        interactAudioSource.Play();
+                        Destroy(clickedObject);
                         Debug.Log("Found Coolant System");
                         break;
                     case "CoolingPipes2":
-                        taskManager.completeTask(7);
+                        taskManager.increaseCoolingPipeCount();
+                        interactAudioSource.Play();
+                        Destroy(clickedObject);
                         Debug.Log("Found Coolant System");
                         break;
                     case "CoolingPipes3":
-                        taskManager.completeTask(8);
+                        taskManager.increaseCoolingPipeCount();
+                        interactAudioSource.Play();
+                        Destroy(clickedObject);
                         Debug.Log("Found Coolant System");
                         break;
                     
@@ -95,7 +112,7 @@ public class GetInfoObject : MonoBehaviour
         taskManager.completeTask(ID);
         interactAudioSource.Play();
         Destroy(clickedObject);
-        Debug.Log("Found Fuse");
+       
     }
 
 }
