@@ -66,4 +66,16 @@ public class TaskManager : MonoBehaviour
         }
 
     }
+
+    public bool checkCanShutDown()
+    {
+        for (int i = 0; i < taskTexts.Length - 1; i++)
+        {
+         if(taskFinished[i] == false)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }
