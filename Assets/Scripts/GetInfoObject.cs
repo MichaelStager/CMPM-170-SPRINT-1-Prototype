@@ -101,7 +101,17 @@ public class GetInfoObject : MonoBehaviour
                         Destroy(clickedObject);
                         Debug.Log("Found Coolant System");
                         break;
-                    
+                    case "RodEngage":
+                        taskManager.completeTask(6);
+                        interactAudioSource.Play();
+                        break;
+                    case "ReactorButton":
+                        if (taskManager.checkCanShutDown())
+                        {
+                            taskManager.completeTask(7);
+                            interactAudioSource.Play();
+                        }
+                        break;
                 }
             }
         }
