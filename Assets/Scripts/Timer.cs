@@ -33,8 +33,8 @@ public class Timer : MonoBehaviour
 
         // Put End HSV values at 0 and Start HSV values at 1. The full timer begins with the starting color then reaches the ending color as it empties
         float hue = Mathf.LerpAngle(endHue, startHue, timeProgress);
-        float saturation = Mathf.LerpAngle(endSaturation, startSaturation, timeProgress);
-        float light = Mathf.LerpAngle(endLight, startLight, timeProgress);
+        float saturation = Mathf.Lerp(endSaturation, startSaturation, timeProgress);
+        float light = Mathf.Lerp(endLight, startLight, timeProgress);
 
         timerImage.color = UnityEngine.Color.HSVToRGB(hue, saturation, light);
     }
