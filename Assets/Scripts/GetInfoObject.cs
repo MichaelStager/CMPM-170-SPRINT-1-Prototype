@@ -53,19 +53,19 @@ public class GetInfoObject : MonoBehaviour
                         taskManager.increaseFuseCount();
                         interactAudioSource.Play();
                         Destroy(clickedObject);
-                        Debug.Log("Found Fuse");
+                     
                         break;
                     case "Fuse2":
                         taskManager.increaseFuseCount();
                         interactAudioSource.Play();
                         Destroy(clickedObject);
-                        Debug.Log("Found Fuse");
+                        
                         break;
                     case "Fuse3":
                         taskManager.increaseFuseCount();
                         interactAudioSource.Play();
                         Destroy(clickedObject);
-                        Debug.Log("Found Fuse");
+                       
 
                         break;
                     case "CircuitBreaker":
@@ -78,30 +78,32 @@ public class GetInfoObject : MonoBehaviour
                         break;
                     case "KeyCard":   
                         taskManager.completeTask(2);
+                        interactAudioSource.Play();
                         Destroy(clickedObject);
-                        Debug.Log("Found KeyCard");
+                       
                         break;
                     case "DocumentTutorial":
                         taskManager.completeTask(0);
-                        Debug.Log("Found Document");
+                        interactAudioSource.Play();
+                        
                         break;
                     case "CoolingPipes1":
                         taskManager.increaseCoolingPipeCount();
                         interactAudioSource.Play();
                         Destroy(clickedObject);
-                        Debug.Log("Found Coolant System");
+                      
                         break;
                     case "CoolingPipes2":
                         taskManager.increaseCoolingPipeCount();
                         interactAudioSource.Play();
                         Destroy(clickedObject);
-                        Debug.Log("Found Coolant System");
+                      
                         break;
                     case "CoolingPipes3":
                         taskManager.increaseCoolingPipeCount();
                         interactAudioSource.Play();
                         Destroy(clickedObject);
-                        Debug.Log("Found Coolant System");
+                       
                         break;
                     case "RodEngage":
                         taskManager.completeTask(6);
@@ -119,12 +121,6 @@ public class GetInfoObject : MonoBehaviour
         }
     }
 
-    void itemGrabbed(int ID, GameObject clickedObject)
-    {
-        taskManager.completeTask(ID);
-        interactAudioSource.Play();
-        Destroy(clickedObject);
-       
-    }
+   
 
 }
