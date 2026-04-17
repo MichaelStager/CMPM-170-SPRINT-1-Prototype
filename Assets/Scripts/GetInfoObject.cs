@@ -77,6 +77,7 @@ public class GetInfoObject : MonoBehaviour
                         break;
                     case "KeyCard":   
                         taskManager.completeTask(2);
+                        Destroy(clickedObject);
                         Debug.Log("Found KeyCard");
                         break;
                     case "DocumentTutorial":
