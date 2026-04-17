@@ -5,11 +5,12 @@ public class GameManager : MonoBehaviour
 {
     TaskManager taskManager;
     AdManager adManager;
-    [SerializeField] float levelTime = 360f;
+    public float levelTime = 360f;
     [SerializeField] AudioSource winSFX;
-    float currentTime = 0;
+   public float currentTime = 0;
     bool isWinner = false;
     public bool isGameOver = false;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -52,5 +53,6 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(3);
             SceneManager.LoadScene(2);
         }
+
     }
 
