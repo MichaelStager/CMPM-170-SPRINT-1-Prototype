@@ -11,6 +11,7 @@ public class TaskManager : MonoBehaviour
     public bool[] taskFinished;
     public int fusesHeld = 0;
     public int pipesHeld = 0;
+    bool areTaskhidden = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -77,5 +78,22 @@ public class TaskManager : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public void hideTaskButton()
+    {
+        
+        foreach(TextMeshProUGUI task in taskTexts)
+        {
+            if (areTaskhidden)
+            {
+                task.enabled = true;
+            }
+            else
+            {
+                task.enabled = false;
+            }
+        }
+        areTaskhidden = !areTaskhidden;
     }
 }

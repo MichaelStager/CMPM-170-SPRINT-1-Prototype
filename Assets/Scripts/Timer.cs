@@ -1,36 +1,23 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
     [SerializeField]GameManager gamemanger;
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] string preTimerText = "TIME LEFT TILL MELTDOWN:";
-    int testNum = 1;
-    int minutes;
-    int seconds;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        //gamemanger = FindAnyObjectByType<GameManager>();
-        
-    }
+    [SerializeField] Image timerImage;
 
-    // Update is called once per frame
+// Update is called once per frame
     void Update()
     {
-        decreaseTimerText();
+        updateTimerFill();
     }
 
-
-    void decreaseTimerText()
+    void updateTimerFill()
     {
-        Debug.Log("UPDATIIIINGNGN!");
-        // Clamp time so it doesn't go below zero if counting down
-        minutes = Mathf.FloorToInt(gamemanger.currentTime / 60);
-        seconds = Mathf.FloorToInt(((int)gamemanger.currentTime) % 60);
-
-        // Format string to always show two digits (00:00)
-        timerText.text =preTimerText + minutes.ToString() + ":" + seconds.ToString();
+        timerImage.fillAmount = gamemanger.currentTime / gamemanger.levelTime;
+        timerImage.color = Color.Lerp(Color.red, Color.green,timerImage.fillAmount);
     }
 }
