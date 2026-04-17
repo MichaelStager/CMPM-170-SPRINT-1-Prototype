@@ -73,6 +73,7 @@ public class GetInfoObject : MonoBehaviour
                         {
                             taskManager.completeTask(3);
                             lightMananger.turnLightsOn();
+                            interactAudioSource.Play();
                         }
                         break;
                     case "KeyCard":   
